@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Math Solver</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1.title {
+            font-family: 'Chewy', cursive;
+            color: #ff6f61;
+        }
+
+        .subtitle {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff6f61;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e55e52;
+        }
+
+        #result, #steps {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .background {
+            background-image: url('https://www.transparenttextures.com/patterns/whitestripes.png');
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1 class="title">🎉 Fun Math Solver 🎉</h1>
+        <p class="subtitle">Enter your math expression below and solve like magic!</p>
+        <input type="text" id="expression" placeholder="E.g., 2 + 3 * 4">
+        <button onclick="solveExpression()">🔮 Solve</button>
+        <div id="result"></div>
+        <div id="steps"></div>
+    </div>
+
+    <script>
+        // JavaScript code to solve the math expression
+        function solveExpression() {
+            const expression = document.getElementById('expression').value;
+            const resultDiv = document.getElementById('result');
+            const stepsDiv = document.getElementById('steps');
+            
+            try {
+                const result = eval(expression);
+                resultDiv.textContent = `Result: ${result}`;
+                stepsDiv.textContent = `Steps: The expression ${expression} is evaluated to ${result}.`;
+            } catch (error) {
+                resultDiv.textContent = "Error: Invalid expression!";
+                stepsDiv.textContent = "Please enter a valid math expression.";
+            }
+        }
+    </script>
+</body>
+</html>
